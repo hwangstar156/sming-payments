@@ -1,0 +1,10 @@
+import { CardProps } from "component/common/Card/Card.component";
+import { Meta, Story } from "@storybook/react";
+declare const _default: Meta<import("@storybook/react").Args>;
+export default _default;
+export declare const DefaultCard: Story<CardProps>;
+export declare const IncompleteCard: Story<CardProps>;
+export declare const PocoCard: Story<CardProps>;
+export declare const JunCard: Story<CardProps>;
+export declare const GongwonCard: Story<CardProps>;
+export declare const BigCard: Story<CardProps>;

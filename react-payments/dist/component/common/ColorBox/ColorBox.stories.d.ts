@@ -1,0 +1,13 @@
+import { ColorBoxProps } from "component/common/ColorBox/ColorBox.component";
+import { Meta, Story } from "@storybook/react";
+declare const _default: Meta<import("@storybook/react").Args>;
+export default _default;
+export declare const PocoCard: Story<ColorBoxProps>;
+export declare const JunCard: Story<ColorBoxProps>;
+export declare const GongwonCard: Story<ColorBoxProps>;
+export declare const BranCard: Story<ColorBoxProps>;
+export declare const RoidCard: Story<ColorBoxProps>;
+export declare const DobbyCard: Story<ColorBoxProps>;
+export declare const CollinCard: Story<ColorBoxProps>;
+export declare const SunCard: Story<ColorBoxProps>;
+export declare const SelectedPocoCard: Story<ColorBoxProps>;
