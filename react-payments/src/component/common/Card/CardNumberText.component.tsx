@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 
-import Dot from "component/common/Dot/Dot.component";
+import Dot from "../Dot/Dot.component";
 
-import { MIDDLE_CARD_NUMBER_LENGTH } from "constants/index";
-import { RowFlexWrapper } from "styles/wrapper";
-import { SeveralInputType, CardNumberEnum, getProperty } from "types";
+import { MIDDLE_CARD_NUMBER_LENGTH } from "../../../constants/index";
+import { RowFlexWrapper } from "../../../styles/wrapper";
+import { SeveralInputType, CardNumberEnum, getProperty } from "../../../types";
 
 const CardNumberTextBox = styled.div<{ size?: string }>`
   display: flex;

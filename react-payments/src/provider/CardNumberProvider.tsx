@@ -1,10 +1,10 @@
 import React, { createContext, useCallback, useState } from "react";
 
-import { isInValidCardNumber, isOverMaxLength } from "util/validator";
-import { focusNextElement, focusPrevElement } from "util/focus";
-import useReady from "hooks/useReady";
-import { MAX_LENGTH } from "constants/index";
-import { SeveralInputType } from "types";
+import { isInValidCardNumber, isOverMaxLength } from "../util/validator";
+import { focusNextElement, focusPrevElement } from "../util/focus";
+import useReady from "../hooks/useReady";
+import { MAX_LENGTH } from "../constants/index";
+import { SeveralInputType } from "../types";
 
 interface InitialContextState {
   cardNumber: SeveralInputType;

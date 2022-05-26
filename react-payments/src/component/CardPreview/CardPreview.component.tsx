@@ -1,26 +1,27 @@
 import React, { memo, useContext, useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import Card from "component/common/Card/Card.component";
-import CardNameInput from "component/CardNameInput/CardNameInput.component";
-import MessageBox from "component/common/MessageBox/MessageBox.component";
-import CardControlModal from "component/CardControlModal/CardControlModal";
-import Box from "styles/box";
+import Card from "../common/Card/Card.component";
+import CardNameInput from "../CardNameInput/CardNameInput.component";
+import MessageBox from "../common/MessageBox/MessageBox.component";
+import CardControlModal from "../CardControlModal/CardControlModal";
+import Box from "../../styles/box";
 
-import useReady from "hooks/useReady";
-import { isDuplicatedCardName, isInvalidCardName } from "util/validator";
+import useReady from "../../hooks/useReady";
+import { isDuplicatedCardName, isInvalidCardName } from "../../util/validator";
 import {
   CardDataContext,
   deletedCardDataAction,
   editCardDataAction,
-} from "provider/CardDataProvider";
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "constants/index";
-import { deleteCard, editCard } from "api/cardApi";
-import { RowFlexWrapper } from "styles/wrapper";
+} from "../../provider/CardDataProvider";
+import { PageRouterContext } from "../../provider/PageRouterProvier";
+
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../../constants/index";
+import { deleteCard, editCard } from "../../api/cardApi";
+import { RowFlexWrapper } from "../../styles/wrapper";
 import { ColumnFlexWrapper } from "../../styles/wrapper";
-import { ErrorContext } from "provider/ErrorContext";
-import { CardDataType, FetchingCardDataType } from "types";
+import { ErrorContext } from "../../provider/ErrorContext";
+import { FetchingCardDataType } from "../../types";
 
 const CardNameText = styled(RowFlexWrapper)`
   font-weight: 700;
@@ -61,11 +62,15 @@ export interface CardPreviewProps {
 const CardPreview = memo(({ cardDatum }: CardPreviewProps) => {
   const cardDataContext = useContext(CardDataContext);
   const errorContext = useContext(ErrorContext);
+  const pageRouterContext = useContext(PageRouterContext);
+
   if (!cardDataContext) throw new Error("Cannot find cardDataContext");
   if (!errorContext) throw new Error("Cannot find errorContext");
+  if (!pageRouterContext) throw new Error("Cannot find pageRouterContext");
 
   const { cardData, dispatch } = cardDataContext;
   const { setError } = errorContext;
+  const { setPath } = pageRouterContext;
 
   const [newCardName, setNewCardName] = useState("");
   const [newCardNameLengthReady] = useReady(newCardName, isInvalidCardName);
@@ -79,10 +84,9 @@ const CardPreview = memo(({ cardDatum }: CardPreviewProps) => {
 
   const [editOn, setEditOn] = useState(false);
   const [isShowModal, toggleModal] = useReducer((prev) => !prev, false);
-  const navigate = useNavigate();
 
   const handleEditCard = () => {
-    navigate(`add/${id}`);
+    setPath(`/add`);
   };
 
   const handleEditFormOn = () => {

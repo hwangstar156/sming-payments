@@ -1,6 +1,6 @@
-import ErrorText from "component/common/ErrorText/ErrorText";
-import LinkButton from "component/common/LinkButton/LinkButton.component";
-import { ColumnFlexWrapper } from "styles/wrapper";
+import ErrorText from "../../component/common/ErrorText/ErrorText";
+import LinkButton from "../../component/common/LinkButton/LinkButton.component";
+import { ColumnFlexWrapper } from "../../styles/wrapper";
 
 const NoRoutePage = () => {
   return (

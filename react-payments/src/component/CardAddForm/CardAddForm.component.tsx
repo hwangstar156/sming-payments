@@ -6,26 +6,31 @@ import React, {
 } from "react";
 import styled from "styled-components";
 
-import CardNumberContainer from "component/CardNumberContainer/CardNumberContainer.component";
-import ExpireDateContainer from "component/ExpireDateContainer/ExpireDateContainer.component";
-import UserNameContainer from "component/UserNameContainer/UserNameContainer.component";
-import SecurityCodeContainer from "component/SecurityCodeContainer/SecurityCodeContainer.component";
-import CardPasswordContainer from "component/CardPasswordContainer/CardPasswordContainer.component";
+import CardNumberContainer from "../CardNumberContainer/CardNumberContainer.component";
+import ExpireDateContainer from "../ExpireDateContainer/ExpireDateContainer.component";
+import UserNameContainer from "../UserNameContainer/UserNameContainer.component";
+import SecurityCodeContainer from "../SecurityCodeContainer/SecurityCodeContainer.component";
+import CardPasswordContainer from "../CardPasswordContainer/CardPasswordContainer.component";
+import Card from "../common/Card/Card.component";
 
-import { CardTypeContext } from "provider/CardTypeProvider";
-import { CardNumberContext } from "provider/CardNumberProvider";
-import { ExpireDateContext } from "provider/ExpireDateProvider";
-import { UserNameContext } from "provider/UserNameProvider";
-import { SecurityCodeContext } from "provider/SecurityCodeProvider";
-import { CardPasswordContext } from "provider/CardPasswordProvider";
-import { useNavigate } from "react-router-dom";
-import Card from "component/common/Card/Card.component";
-import useReady from "hooks/useReady";
-import { isAllInputReady, isEdit } from "util/validator";
-import LinkButton from "component/common/LinkButton/LinkButton.component";
-import { editCard } from "api/cardApi";
-import { CardDataContext, editCardDataAction } from "provider/CardDataProvider";
-import { ErrorContext } from "provider/ErrorContext";
+import { CardTypeContext } from "../../provider/CardTypeProvider";
+import { CardNumberContext } from "../../provider/CardNumberProvider";
+import { ExpireDateContext } from "../../provider/ExpireDateProvider";
+import { UserNameContext } from "../../provider/UserNameProvider";
+import { SecurityCodeContext } from "../../provider/SecurityCodeProvider";
+import { CardPasswordContext } from "../../provider/CardPasswordProvider";
+import { PageRouterContext } from "../../provider/PageRouterProvier";
+
+import {
+  CardDataContext,
+  editCardDataAction,
+} from "../../provider/CardDataProvider";
+import { ErrorContext } from "../../provider/ErrorContext";
+
+import useReady from "../../hooks/useReady";
+import { isAllInputReady, isEdit } from "../../util/validator";
+import LinkButton from "../common/LinkButton/LinkButton.component";
+import { editCard } from "../../api/cardApi";
 
 const Form = styled.form`
   display: flex;
@@ -46,6 +51,7 @@ const CardAddForm = ({ toggleShowModal, id }: CardAddFormProps) => {
   const cardPasswordContext = useContext(CardPasswordContext);
   const cardDataContext = useContext(CardDataContext);
   const errorContext = useContext(ErrorContext);
+  const pageRouterContext = useContext(PageRouterContext);
 
   if (!cardNumberContext) throw new Error("Cannot find CardNumberContext");
   if (!cardTypeContext) throw new Error("Cannot find CardTypeContext");
@@ -55,6 +61,7 @@ const CardAddForm = ({ toggleShowModal, id }: CardAddFormProps) => {
   if (!cardPasswordContext) throw new Error("Cannot find CardPasswordContext");
   if (!cardDataContext) throw new Error("Cannot find CardDataContext");
   if (!errorContext) throw new Error("Cannot find ErrorContext");
+  if (!pageRouterContext) throw new Error("Cannot find PageRouterContext");
 
   const {
     state: { cardTypeInfo, cardTypeReady },
@@ -82,6 +89,7 @@ const CardAddForm = ({ toggleShowModal, id }: CardAddFormProps) => {
   } = cardPasswordContext;
   const { cardData, dispatch } = cardDataContext;
   const { setError } = errorContext;
+  const { setPath } = pageRouterContext;
 
   const [allFormReady] = useReady(
     {
@@ -93,7 +101,6 @@ const CardAddForm = ({ toggleShowModal, id }: CardAddFormProps) => {
     },
     isAllInputReady
   );
-  const navigate = useNavigate();
 
   const resetCardStatus = useCallback(() => {
     resetCardNumber();
@@ -113,9 +120,9 @@ const CardAddForm = ({ toggleShowModal, id }: CardAddFormProps) => {
 
   useEffect(() => {
     if (isEdit(id) && Object.keys(cardData).length === 0) {
-      navigate("/");
+      setPath("/");
     }
-  }, [Object.keys(cardData).length, id, navigate]);
+  }, [cardData, id, setPath]);
 
   useEffect(() => {
     if (typeof id === "undefined" || !cardData[id]) {
@@ -182,10 +189,10 @@ const CardAddForm = ({ toggleShowModal, id }: CardAddFormProps) => {
     e.preventDefault();
     if (isEdit(id)) {
       handleEditCard();
-      navigate("/");
+      setPath("/");
       return;
     }
-    navigate("/register");
+    setPath("/register");
   };
 
   return (

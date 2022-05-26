@@ -1,1 +1,0 @@
-{"version":3,"file":"PaymentLabel.js","sourceRoot":"","sources":["../../../src/component/PaymentLabel/PaymentLabel.tsx"],"names":[],"mappings":"AAAA,OAAO,MAAM,EAAE,EAAE,GAAG,EAAE,MAAM,mBAAmB,CAAC;AAEhD,MAAM,YAAY,GAAG,MAAM,CAAC,GAAG,CAAwB;;;;IAInD,CAAC,EAAE,SAAS,EAAE,EAAE,EAAE,CAClB,SAAS,KAAK,cAAc;IAC5B,GAAG,CAAA;;;;KAIF;CACJ,CAAC;AAEF,eAAe,YAAY,CAAC"}

@@ -1,10 +1,10 @@
-import { MAX_LENGTH, MAX_MONTH } from "constants/index";
+import { MAX_LENGTH, MAX_MONTH } from "../constants/index";
 import {
   CardDataType,
   CardType,
   SecurityCodeType,
   SeveralInputType,
-} from "types";
+} from "../types";
 
 export const isOverMaxLength = (target: HTMLInputElement, maxLength: number) =>
   target.value.length > maxLength;

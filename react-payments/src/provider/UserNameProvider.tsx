@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useState } from "react";
-import { isOverMaxLength } from "util/validator";
-import { MAX_LENGTH } from "constants/index";
-import { UserNameType } from "types";
+import { isOverMaxLength } from "../util/validator";
+import { MAX_LENGTH } from "../constants/index";
+import { UserNameType } from "../types";
 
 interface InitialContextState {
   userName: UserNameType;

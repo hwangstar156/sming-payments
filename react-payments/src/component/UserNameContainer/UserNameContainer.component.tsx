@@ -1,10 +1,10 @@
 import { memo, useContext } from "react";
 
-import Label from "component/common/Label/Label.component";
-import InputBox from "component/common/InputBox/InputBox.component";
-import Input from "component/common/Input/Input.component";
+import Label from "../common/Label/Label.component";
+import InputBox from "../common/InputBox/InputBox.component";
+import Input from "../common/Input/Input.component";
 
-import { UserNameContext } from "provider/UserNameProvider";
+import { UserNameContext } from "../../provider/UserNameProvider";
 
 const UserNameContainer = memo(() => {
   const userNameContext = useContext(UserNameContext);

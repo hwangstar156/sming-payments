@@ -1,15 +1,11 @@
 import { useState, useEffect, useContext } from "react";
-import { ErrorContext } from "provider/ErrorContext";
-import { AllFetchingCardDataType } from "types";
+import { ErrorContext } from "../provider/ErrorContext";
+import { AllFetchingCardDataType } from "../types";
 
 function useFetch(url: string) {
   const [data, setData] = useState<AllFetchingCardDataType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const errorContext = useContext(ErrorContext);
-  if (!errorContext) {
-    throw new Error("Cannot find ErrorContext");
-  }
-  const { setError } = errorContext;
 
   useEffect(() => {
     const callApi = async () => {
@@ -26,6 +22,11 @@ function useFetch(url: string) {
         setData(data);
       } catch (err) {
         if (err instanceof Error) {
+          if (!errorContext) {
+            console.log("Cannot find ErrorContext");
+            return;
+          }
+          const { setError } = errorContext;
           setError(err);
         }
       } finally {
@@ -34,7 +35,7 @@ function useFetch(url: string) {
     };
 
     callApi();
-  }, [url, setError]);
+  }, [url, errorContext]);
 
   return { data, loading };
 }

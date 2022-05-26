@@ -1,26 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import CardNameInput from "component/CardNameInput/CardNameInput.component";
-import Card from "component/common/Card/Card.component";
-import LinkButton from "component/common/LinkButton/LinkButton.component";
-import MessageBox from "component/common/MessageBox/MessageBox.component";
-import PageTitle from "component/common/PageTitle/PageTitle.component";
+import CardNameInput from "../CardNameInput/CardNameInput.component";
+import Card from "../common/Card/Card.component";
+import LinkButton from "../common/LinkButton/LinkButton.component";
+import MessageBox from "../common/MessageBox/MessageBox.component";
+import PageTitle from "../common/PageTitle/PageTitle.component";
 
-import { CardDataContext } from "provider/CardDataProvider";
-import { CardNumberContext } from "provider/CardNumberProvider";
-import { CardPasswordContext } from "provider/CardPasswordProvider";
-import { CardTypeContext } from "provider/CardTypeProvider";
-import { ExpireDateContext } from "provider/ExpireDateProvider";
-import { SecurityCodeContext } from "provider/SecurityCodeProvider";
-import { UserNameContext } from "provider/UserNameProvider";
+import { CardDataContext } from "../../provider/CardDataProvider";
+import { CardNumberContext } from "../../provider/CardNumberProvider";
+import { CardPasswordContext } from "../../provider/CardPasswordProvider";
+import { CardTypeContext } from "../../provider/CardTypeProvider";
+import { ExpireDateContext } from "../../provider/ExpireDateProvider";
+import { SecurityCodeContext } from "../../provider/SecurityCodeProvider";
+import { UserNameContext } from "../../provider/UserNameProvider";
+import { ErrorContext } from "../../provider/ErrorContext";
+import { PageRouterContext } from "../../provider/PageRouterProvier";
 
-import { isDuplicatedCardName, isInvalidCardName } from "util/validator";
-import { registerCard } from "api/cardApi";
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "constants/index";
-import useReady from "hooks/useReady";
-import { ErrorContext } from "provider/ErrorContext";
+import { isDuplicatedCardName, isInvalidCardName } from "../../util/validator";
+import { registerCard } from "../../api/cardApi";
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../../constants/index";
+import useReady from "../../hooks/useReady";
 
 const CardRegisterGroup = styled.div`
   display: flex;
@@ -44,6 +44,7 @@ const CardRegisterForm = () => {
   const cardPasswordContext = useContext(CardPasswordContext);
   const cardDataContext = useContext(CardDataContext);
   const errorContext = useContext(ErrorContext);
+  const pageRouterContext = useContext(PageRouterContext);
 
   if (!cardNumberContext) throw new Error("Cannot find CardNumberContext");
   if (!cardTypeContext) throw new Error("Cannot find CardTypeContext");
@@ -53,6 +54,7 @@ const CardRegisterForm = () => {
   if (!cardPasswordContext) throw new Error("Cannot find CardPasswordContext");
   if (!cardDataContext) throw new Error("Cannot find CardDataContext");
   if (!errorContext) throw new Error("Cannot find ErrorContext");
+  if (!pageRouterContext) throw new Error("Cannot find PageRouterContext");
 
   const {
     state: { cardTypeInfo },
@@ -80,6 +82,7 @@ const CardRegisterForm = () => {
   } = cardPasswordContext;
   const { cardData } = cardDataContext;
   const { setError } = errorContext;
+  const { setPath } = pageRouterContext;
 
   const [cardName, setCardName] = useState("");
   const [cardNameLengthReady] = useReady(cardName, isInvalidCardName);
@@ -88,13 +91,12 @@ const CardRegisterForm = () => {
     isDuplicatedCardName,
     cardData
   );
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (securityCode === "") {
-      navigate("/");
+      setPath("/");
     }
-  }, [navigate, securityCode]);
+  }, [setPath, securityCode]);
 
   const handleSubmitCardData = async () => {
     resetCardNumber();

@@ -1,13 +1,13 @@
 import { memo, useContext } from "react";
 
-import Label from "component/common/Label/Label.component";
-import InputBox from "component/common/InputBox/InputBox.component";
-import Input from "component/common/Input/Input.component";
-import ConnectorBox from "component/common/ConnectorBox/ConnectorBox.component";
-import MessageBox from "component/common/MessageBox/MessageBox.component";
+import Label from "../common/Label/Label.component";
+import InputBox from "../common/InputBox/InputBox.component";
+import Input from "../common/Input/Input.component";
+import ConnectorBox from "../common/ConnectorBox/ConnectorBox.component";
+import MessageBox from "../common/MessageBox/MessageBox.component";
 
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "constants/index";
-import { CardNumberContext } from "provider/CardNumberProvider";
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../../constants/index";
+import { CardNumberContext } from "../../provider/CardNumberProvider";
 
 const CardNumberContainer = memo(() => {
   const cardNumberContext = useContext(CardNumberContext);

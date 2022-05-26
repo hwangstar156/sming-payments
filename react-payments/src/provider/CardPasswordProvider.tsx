@@ -1,8 +1,11 @@
 import React, { createContext, useCallback, useState } from "react";
 
-import useReady from "hooks/useReady";
-import { isCompletePasswordInput, isInValidCardPassword } from "util/validator";
-import { SeveralInputType } from "types";
+import useReady from "../hooks/useReady";
+import {
+  isCompletePasswordInput,
+  isInValidCardPassword,
+} from "../util/validator";
+import { SeveralInputType } from "../types";
 
 interface InitialContextState {
   cardPassword: SeveralInputType;

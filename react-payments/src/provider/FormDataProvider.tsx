@@ -1,10 +1,11 @@
-import CardNumberProvider from "provider/CardNumberProvider";
-import CardPasswordProvider from "provider/CardPasswordProvider";
-import CardTypeProvider from "provider/CardTypeProvider";
-import ExpireDateProvider from "provider/ExpireDateProvider";
-import SecurityCodeProvider from "provider/SecurityCodeProvider";
-import UserNameProvider from "provider/UserNameProvider";
 import React from "react";
+
+import CardNumberProvider from "./CardNumberProvider";
+import CardPasswordProvider from "./CardPasswordProvider";
+import CardTypeProvider from "./CardTypeProvider";
+import ExpireDateProvider from "./ExpireDateProvider";
+import SecurityCodeProvider from "./SecurityCodeProvider";
+import UserNameProvider from "./UserNameProvider";
 
 const FormDataProvider = ({ children }: { children: React.ReactNode }) => {
   return (

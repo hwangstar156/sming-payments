@@ -1,6 +1,6 @@
-import ModalPortal from "component/common/ModalPortal/ModalPortal.component";
-import Modal from "component/common/Modal/Modal.component";
-import CardControlButtonBox from "component/CardControlButtonBox/CardControlButtonBox.component";
+import ModalPortal from "../common/ModalPortal/ModalPortal.component";
+import Modal from "../common/Modal/Modal.component";
+import CardControlButtonBox from "../CardControlButtonBox/CardControlButtonBox.component";
 import { DispatchWithoutAction } from "react";
 
 export interface CardControlModalProps {

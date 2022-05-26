@@ -1,11 +1,14 @@
 import { useContext, useEffect } from "react";
 
-import CardPreview from "component/CardPreview/CardPreview.component";
-import SkeletonCardBox from "component/common/SkeletonCard/SkeletonCard.component";
+import CardPreview from "../CardPreview/CardPreview.component";
+import SkeletonCardBox from "../common/SkeletonCard/SkeletonCard.component";
 
-import useFetch from "hooks/useFetch";
-import { API_URL } from "constants/index";
-import { CardDataContext, initCardDataAction } from "provider/CardDataProvider";
+import useFetch from "../../hooks/useFetch";
+import { API_URL } from "../../constants/index";
+import {
+  CardDataContext,
+  initCardDataAction,
+} from "../../provider/CardDataProvider";
 
 const SavedCardList = () => {
   const { data, loading } = useFetch(`${API_URL}/api/cards`);

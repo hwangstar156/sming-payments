@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useState } from "react";
 
-import { defaultCardInfo } from "constants/index";
-import useReady from "hooks/useReady";
-import { isInValidCardType } from "util/validator";
-import { CardTypeInfoType } from "types";
+import { defaultCardInfo } from "../constants/index";
+import useReady from "../hooks/useReady";
+import { isInValidCardType } from "../util/validator";
+import { CardTypeInfoType } from "../types";
 
 interface InitialContextState {
   cardTypeInfo: CardTypeInfoType;

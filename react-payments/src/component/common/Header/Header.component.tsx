@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import Box from "styles/box";
+import Box from "../../../styles/box";
 
 const Header = memo(({ children }: { children: React.ReactNode }) => {
   return (

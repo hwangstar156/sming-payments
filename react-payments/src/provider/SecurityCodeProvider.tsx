@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useState } from "react";
 
-import { MAX_LENGTH } from "constants/index";
-import useReady from "hooks/useReady";
-import { isInValidSecurityCode } from "util/validator";
-import { SecurityCodeType } from "types";
+import { MAX_LENGTH } from "../constants/index";
+import useReady from "../hooks/useReady";
+import { isInValidSecurityCode } from "../util/validator";
+import { SecurityCodeType } from "../types";
 
 interface InitialContextState {
   securityCode: SecurityCodeType;

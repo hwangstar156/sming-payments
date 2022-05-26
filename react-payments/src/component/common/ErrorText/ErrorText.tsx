@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ColumnFlexWrapper } from "styles/wrapper";
+import { ColumnFlexWrapper } from "../../../styles/wrapper";
 
 const ErrorTitle = styled.div`
   color: tomato;

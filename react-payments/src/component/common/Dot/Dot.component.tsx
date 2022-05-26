@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { RowFlexWrapper } from "styles/wrapper";
-import { CardType } from "types";
+import { RowFlexWrapper } from "../../../styles/wrapper";
+import { CardType } from "../../../types";
 
 export interface DotProps {
   styleSize?: string;

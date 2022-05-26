@@ -1,17 +1,17 @@
 import { memo, useContext } from "react";
 
-import Label from "component/common/Label/Label.component";
-import InputBox from "component/common/InputBox/InputBox.component";
-import Input from "component/common/Input/Input.component";
-import MessageBox from "component/common/MessageBox/MessageBox.component";
-import Dot from "component/common/Dot/Dot.component";
-import VirtualKeyboard from "component/common/VirtualKeyboard/VirtualKeyboard.component";
+import Label from "../common/Label/Label.component";
+import InputBox from "../common/InputBox/InputBox.component";
+import Input from "../common/Input/Input.component";
+import MessageBox from "../common/MessageBox/MessageBox.component";
+import Dot from "../common/Dot/Dot.component";
+import VirtualKeyboard from "../common/VirtualKeyboard/VirtualKeyboard.component";
 
-import useKeyboardOn from "hooks/useKeyboardOn";
-import { CardPasswordContext } from "provider/CardPasswordProvider";
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "constants/index";
+import useKeyboardOn from "../../hooks/useKeyboardOn";
+import { CardPasswordContext } from "../../provider/CardPasswordProvider";
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../../constants/index";
 
-import Box from "styles/box";
+import Box from "../../styles/box";
 
 const CardPasswordContainer = memo(() => {
   const cardPasswordContext = useContext(CardPasswordContext);

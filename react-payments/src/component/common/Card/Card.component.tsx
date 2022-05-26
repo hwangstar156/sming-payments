@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
-
-import CardNumberText from "component/common/Card/CardNumberText.component";
-import { ColumnFlexWrapper } from "styles/wrapper";
-import { RowFlexWrapper } from "styles/wrapper";
-import { CardDataType, CardType } from "types";
 import React from "react";
+
+import CardNumberText from "../Card/CardNumberText.component";
+import { ColumnFlexWrapper } from "../../../styles/wrapper";
+import { RowFlexWrapper } from "../../../styles/wrapper";
+import { CardDataType, CardType } from "../../../types";
 
 const CardTop = styled.div`
   width: 100%;

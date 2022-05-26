@@ -1,8 +1,6 @@
-import { CardControlModalProps } from "component/CardControlModal/CardControlModal";
-import { DispatchWithoutAction } from "react";
-import styled from "styled-components";
-import { css } from "styled-components";
-import { RowFlexWrapper } from "styles/wrapper";
+import { CardControlModalProps } from "../../CardControlModal/CardControlModal";
+import styled, { css } from "styled-components";
+import { RowFlexWrapper } from "../../../styles/wrapper";
 
 const DimmedModal = styled.div`
   width: 100%;

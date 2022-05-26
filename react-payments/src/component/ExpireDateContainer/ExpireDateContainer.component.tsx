@@ -1,13 +1,13 @@
 import { memo, useContext } from "react";
 
-import Input from "component/common/Input/Input.component";
-import InputBox from "component/common/InputBox/InputBox.component";
-import ConnectorBox from "component/common/ConnectorBox/ConnectorBox.component";
-import MessageBox from "component/common/MessageBox/MessageBox.component";
-import Label from "component/common/Label/Label.component";
+import Input from "../common/Input/Input.component";
+import InputBox from "../common/InputBox/InputBox.component";
+import ConnectorBox from "../common/ConnectorBox/ConnectorBox.component";
+import MessageBox from "../common/MessageBox/MessageBox.component";
+import Label from "../common/Label/Label.component";
 
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "constants/index";
-import { ExpireDateContext } from "provider/ExpireDateProvider";
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../../constants/index";
+import { ExpireDateContext } from "../../provider/ExpireDateProvider";
 
 const ExpireDateContainer = memo(() => {
   const expireDateContext = useContext(ExpireDateContext);

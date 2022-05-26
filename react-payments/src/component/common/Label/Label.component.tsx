@@ -14,7 +14,6 @@ const Label = styled.label<{ styleType?: string }>`
     styleType === "user-name" &&
     css`
       display: flex;
-      width: 90%;
       justify-content: space-between;
     `}
 `;

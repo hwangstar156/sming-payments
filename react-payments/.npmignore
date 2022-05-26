@@ -2,3 +2,10 @@ node_modules/
 src/
 public/
 tsconfig.json
+storybook-static/
+tsconfig.paths.json
+babel.config.json
+craco.config.js
+build-storybook.log
+build/
+.storybook

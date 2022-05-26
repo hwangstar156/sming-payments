@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compileOnSave": true,
   "compilerOptions": {
     "target": "es2016",
@@ -19,9 +20,8 @@
     "isolatedModules": true,
     "declaration": true,
     "noEmit": false,
-    "outDir": "./dist",
-    "baseUrl": "./src"
+    "outDir": "./dist"
   },
-  "include": ["./src"],
+  "include": ["./src", "craco.config.js"],
   "exclude": ["node_modules/*"]
 }

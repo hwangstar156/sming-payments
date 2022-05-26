@@ -1,10 +1,10 @@
 {
   "name": "sming-payments",
   "description": "리액트 페이먼츠",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "private": false,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/lib/index.js",
+  "types": "dist/src/lib/index.d.ts",
   "browser": "./browser/specific/main.js",
   "author": {
     "name": "sming",
@@ -12,26 +12,32 @@
   },
   "homepage": "https://hwangstar156.github.io/react-payments/",
   "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-react": "^7.17.12",
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "sming-payments": "^0.0.20",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "prepare": "rm -rf dist && mkdir dist && tsc",
+    "prepare": "rm -rf dist && mkdir dist && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files && tsc",
     "chromatic": "npx chromatic --project-token=f5e114bf0896"
   },
   "eslintConfig": {
@@ -81,10 +87,16 @@
     "@types/react-dom": "^18.0.4",
     "@types/styled-components": "^5.1.25",
     "chromatic": "^6.5.4",
+    "craco-alias": "^3.0.1",
     "gh-pages": "^3.2.3",
     "storybook-react-context": "^0.6.0",
     "storybook-react-router": "^1.0.8",
     "typescript": "^4.6.4",
     "webpack": "^5.72.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
   }
 }

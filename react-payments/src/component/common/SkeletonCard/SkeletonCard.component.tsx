@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import Box from "styles/box";
+import Box from "../../../styles/box";
 
 const Refresh = keyframes`
   0% {

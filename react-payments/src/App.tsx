@@ -1,18 +1,31 @@
-import { Route, Routes } from "react-router";
-import CardAddPage from "pages/CardAddPage/CardAddPage.pages";
-import CardRegisterPage from "pages/CardRegisterPage/CardRegisterPage.pages";
-import NoRoutePage from "pages/NoRoutePage/NoRoutePage.pages";
-import PaymentPage from "pages/PaymentPage/PaymentPage.pages";
+import { ThemeProvider } from "styled-components";
+import ErrorBoundary from "./component/common/Errorboundary/Errorboundary";
+import FormDataProvider from "./provider/FormDataProvider";
+import CardDataProvider from "./provider/CardDataProvider";
+import ErrorProvider from "./provider/ErrorContext";
+import theme from "./styles/theme";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.pages";
+import PageRouterProvider from "./provider/PageRouterProvier";
+import PageRouter from "./pages/PageRouter/PageRouter";
+import GlobalStyle from "./styles/GlobalStyle";
 
 function App({ price }: { price?: number }) {
   return (
-    <Routes>
-      <Route path="/" element={<PaymentPage price={price} />} />
-      <Route path="/*" element={<NoRoutePage />} />
-      <Route path="/add" element={<CardAddPage />} />
-      <Route path="/add/:id" element={<CardAddPage />} />
-      <Route path="/register" element={<CardRegisterPage />} />
-    </Routes>
+    <FormDataProvider>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <ErrorBoundary fallback={<ErrorPage />}>
+          <CardDataProvider>
+            <ErrorProvider>
+              <PageRouterProvider>
+                <PageRouter price={price} />
+                <div id="sming-payments-modal"></div>
+              </PageRouterProvider>
+            </ErrorProvider>
+          </CardDataProvider>
+        </ErrorBoundary>
+      </ThemeProvider>
+    </FormDataProvider>
   );
 }
 

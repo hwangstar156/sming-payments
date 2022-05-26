@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import { HELP_MESSAGE } from "constants/index";
-import { RowFlexWrapper } from "styles/wrapper";
-import Box from "styles/box";
+import { HELP_MESSAGE } from "../../../constants/index";
+import { RowFlexWrapper } from "../../../styles/wrapper";
+import Box from "../../../styles/box";
 
 const HelpIcon = styled(RowFlexWrapper)`
   width: 27px;

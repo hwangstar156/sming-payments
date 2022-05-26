@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FormTypeEnum } from "types";
+import { FormTypeEnum } from "../../../types";
 
 export interface InputBoxProps {
   formType: keyof typeof FormTypeEnum;

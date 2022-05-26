@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
-import Dot from "component/common/Dot/Dot.component";
-import { CardType, CardTypeInfoType } from "types";
+import Dot from "../Dot/Dot.component";
+import { CardType, CardTypeInfoType } from "../../../types";
 
 const ColorBoxContainer = styled.div`
   height: 62px;

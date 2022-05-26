@@ -1,16 +1,16 @@
 import { memo, useContext } from "react";
 import styled from "styled-components";
 
-import Label from "component/common/Label/Label.component";
-import InputBox from "component/common/InputBox/InputBox.component";
-import Input from "component/common/Input/Input.component";
-import MessageBox from "component/common/MessageBox/MessageBox.component";
-import HelpBox from "component/common/HelpBox/HelpBox.component";
-import useKeyboardOn from "hooks/useKeyboardOn";
-import VirtualKeyboard from "component/common/VirtualKeyboard/VirtualKeyboard.component";
+import Label from "../common/Label/Label.component";
+import InputBox from "../common/InputBox/InputBox.component";
+import Input from "../common/Input/Input.component";
+import MessageBox from "../common/MessageBox/MessageBox.component";
+import HelpBox from "../common/HelpBox/HelpBox.component";
+import VirtualKeyboard from "../common/VirtualKeyboard/VirtualKeyboard.component";
 
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "constants/index";
-import { SecurityCodeContext } from "provider/SecurityCodeProvider";
+import useKeyboardOn from "../../hooks/useKeyboardOn";
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../../constants/index";
+import { SecurityCodeContext } from "../../provider/SecurityCodeProvider";
 
 const SecurityCodeInputGroup = styled.div`
   display: flex;

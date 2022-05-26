@@ -1,5 +1,5 @@
-import { API_URL } from "constants/index";
-import { AllCardData, CardDataType } from "types";
+import { API_URL } from "../constants/index";
+import { AllCardData, CardDataType } from "../types";
 
 export const getCardList = async (): Promise<AllCardData> => {
   try {
@@ -18,7 +18,7 @@ export const registerCard = async (
   data: Omit<CardDataType, "id">
 ): Promise<void> => {
   try {
-    const res = await fetch(`${API_URL}/api/car`, {
+    const res = await fetch(`${API_URL}/api/cards`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ data }),

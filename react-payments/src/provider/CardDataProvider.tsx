@@ -1,11 +1,10 @@
 import React, { createContext, useReducer } from "react";
-import { REDUCER_TYPE } from "constants/index";
+import { REDUCER_TYPE } from "../constants/index";
 import {
-  AllCardData,
   AllFetchingCardDataType,
   CardDataType,
   WithRequiredProperty,
-} from "types";
+} from "../types";
 
 export const initCardDataAction = (cardData: AllFetchingCardDataType) => ({
   type: REDUCER_TYPE.INIT,
