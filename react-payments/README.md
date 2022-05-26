@@ -41,11 +41,16 @@ import { SmingPayment, useSmingPayment } from "sming-payments";
 function App() {
   const { isShowModal, toggleModal } = useSmingPayment();
 
+  const onClickPayButton = () => {
+    // 결제시에 발생할 로직
+  };
+
   return (
     <SmingPayment
       price={34000}
       isShowModal={isShowModal}
       toggleModal={toggleModal}
+      payButtonHandler={onClickPayButton}
     />
   );
 }
@@ -61,12 +66,17 @@ const onClickPaymentButton = () => {
   toggleModal();
 };
 
+const onClickPayButton = () => {
+  // 결제시에 발생할 로직
+};
+
 return (
   <>
     <SmingPayment
       price={34000}
       isShowModal={isShowModal}
       toggleModal={toggleModal}
+      payButtonHandler={onClickPayButton}
     />
     <button onClick={onClickPaymentButton}>buy</button>
   </>
