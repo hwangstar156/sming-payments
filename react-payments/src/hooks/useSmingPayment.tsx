@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { ModalContext } from "../provider/ModalProvider";
+import { SmingModalContext } from "../provider/SmingModalProvider";
 
 function useSmingPayment() {
-  const modalProvider = useContext(ModalContext);
-  if (!modalProvider) {
-    throw new Error("cannot find modalProvider");
+  const smingModalContext = useContext(SmingModalContext);
+  if (smingModalContext === null) {
+    throw new Error("cannot find smingModalContext");
   }
-  const { isShowModal, toggleModal } = modalProvider;
-  return [isShowModal, toggleModal];
+  const { isShowModal, toggleModal } = smingModalContext;
+  return { isShowModal, toggleModal };
 }
 
 export default useSmingPayment;

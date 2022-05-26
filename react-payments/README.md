@@ -6,12 +6,59 @@ npm i sming-payments
 
 ## Usage
 
+### Setting
+
 ```jsx
-import { SmingPayment } from "sming-payments";
+// index.jsx
+import { SmingModalProvider } from "sming-payments";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <SmingModalProvider>
+    <App />
+  </SmingModalProvider>
+);
+```
+
+### SmingPayment Component
+
+```jsx
+import { SmingPayment, useSmingPayment } from "sming-payments";
 
 function App() {
-  return <SmingPayment price={34000} />;
+  const { isShowModal, toggleModal } = useSmingPayment();
+
+  return (
+    <SmingPayment
+      price={34000}
+      isShowModal={isShowModal}
+      toggleModal={toggleModal}
+    />
+  );
 }
 ```
 
-must add price attribute
+### render SmingPayment
+
+```jsx
+// payment.jsx
+const { isShowModal, toggleModal } = useSmingPayment();
+
+const onClickPaymentButton = () => {
+  toggleModal();
+};
+
+return (
+  <>
+    <SmingPayment
+      price={34000}
+      isShowModal={isShowModal}
+      toggleModal={toggleModal}
+    />
+    <button onClick={onClickPaymentButton}>buy</button>
+  </>
+);
+```
+
+- must add price, isShowModal, toggleModal attributes
