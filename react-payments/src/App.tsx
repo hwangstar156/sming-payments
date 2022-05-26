@@ -10,11 +10,16 @@ import PageRouter from "./pages/PageRouter/PageRouter";
 import GlobalStyle from "./styles/GlobalStyle";
 import ModalPortal from "./component/common/ModalPortal/ModalPortal.component";
 import Modal from "./component/common/Modal/Modal.component";
-import { useReducer } from "react";
 
-function App({ price }: { price?: number }) {
-  const [isShowModal, toggleModal] = useReducer((prev) => !prev, true);
-
+function App({
+  price,
+  isShowModal,
+  toggleModal,
+}: {
+  price?: number;
+  isShowModal: boolean;
+  toggleModal: React.DispatchWithoutAction;
+}) {
   return isShowModal ? (
     <FormDataProvider>
       <GlobalStyle />
