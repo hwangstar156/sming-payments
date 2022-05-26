@@ -13,7 +13,13 @@ const PaymentButton = styled.button.attrs({ type: "button" })<{
   :hover {
     filter: brightness(1.05);
   }
+
   background-color: ${({ checked }) => checked && "#2AC1BC"};
+  :disabled {
+    cursor: auto;
+    filter: brightness(80%);
+    user-select: none;
+  }
 `;
 
 export default PaymentButton;

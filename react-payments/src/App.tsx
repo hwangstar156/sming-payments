@@ -8,9 +8,14 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.pages";
 import PageRouterProvider from "./provider/PageRouterProvier";
 import PageRouter from "./pages/PageRouter/PageRouter";
 import GlobalStyle from "./styles/GlobalStyle";
+import ModalPortal from "./component/common/ModalPortal/ModalPortal.component";
+import Modal from "./component/common/Modal/Modal.component";
+import { useReducer } from "react";
 
 function App({ price }: { price?: number }) {
-  return (
+  const [isShowModal, toggleModal] = useReducer((prev) => !prev, true);
+
+  return isShowModal ? (
     <FormDataProvider>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
@@ -18,15 +23,18 @@ function App({ price }: { price?: number }) {
           <CardDataProvider>
             <ErrorProvider>
               <PageRouterProvider>
-                <PageRouter price={price} />
-                <div id="sming-payments-modal"></div>
+                <ModalPortal elementId="modal">
+                  <Modal toggleModal={toggleModal} modalType="global-modal">
+                    <PageRouter price={price} toggleModal={toggleModal} />
+                  </Modal>
+                </ModalPortal>
               </PageRouterProvider>
             </ErrorProvider>
           </CardDataProvider>
         </ErrorBoundary>
       </ThemeProvider>
     </FormDataProvider>
-  );
+  ) : null;
 }
 
 export default App;

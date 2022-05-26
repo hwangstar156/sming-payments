@@ -17,7 +17,7 @@ const CardControlModal = ({
   handleDeleteCard,
 }: CardControlModalProps) => {
   return (
-    <ModalPortal>
+    <ModalPortal elementId="sming-payments-modal">
       <Modal toggleModal={toggleModal} styleType={type}>
         <CardControlButtonBox
           handleEditCard={handleEditCard}

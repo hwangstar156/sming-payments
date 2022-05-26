@@ -14,7 +14,7 @@ const StyledCardAddLink = styled.button`
   border-radius: 5px;
   border-color: transparent;
   user-select: none;
-
+  cursor: pointer;
   text-align: center;
   font-size: 50px;
   background: ${({ theme }) => theme.colors.cardAddLink};

@@ -76,8 +76,8 @@ function CardSlider() {
           <SkeletonCardBox />
         ) : (
           Object.entries(cardData).map(([_, cardDatum]) => (
-            <ColumnFlexWrapper>
-              <Card {...cardDatum.attributes} key={cardDatum.id} />
+            <ColumnFlexWrapper key={cardDatum.id}>
+              <Card {...cardDatum.attributes} />
               <CardNameText>{cardDatum.attributes.cardName}</CardNameText>
             </ColumnFlexWrapper>
           ))

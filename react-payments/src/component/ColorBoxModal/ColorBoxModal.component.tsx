@@ -10,7 +10,7 @@ const ColorBoxModal = ({
   toggleModal: DispatchWithoutAction;
 }) => {
   return (
-    <ModalPortal>
+    <ModalPortal elementId="sming-payments-modal">
       <Modal toggleModal={toggleModal}>
         <CardTypeSelector />
       </Modal>

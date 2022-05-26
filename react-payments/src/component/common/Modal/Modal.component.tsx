@@ -2,13 +2,22 @@ import { CardControlModalProps } from "../../CardControlModal/CardControlModal";
 import styled, { css } from "styled-components";
 import { RowFlexWrapper } from "../../../styles/wrapper";
 
-const DimmedModal = styled.div`
+const DimmedModal = styled.div<{ modalType: string | undefined }>`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  ${({ modalType }) =>
+    modalType === "global-modal"
+      ? css`
+          justify-content: flex-start;
+          align-items: center;
+          padding: 5%;
+        `
+      : css`
+          align-items: center;
+          justify-content: flex-end;
+        `}
   position: absolute;
   top: 0;
   left: 0;
@@ -16,7 +25,7 @@ const DimmedModal = styled.div`
 `;
 
 const ModalBox = styled(RowFlexWrapper)<{ styleType: string | undefined }>`
-  width: 380px;
+  width: 375px;
   ${({ styleType }) =>
     styleType === "edit"
       ? css`
@@ -33,11 +42,12 @@ const ModalBox = styled(RowFlexWrapper)<{ styleType: string | undefined }>`
 export interface ModalProps extends Pick<CardControlModalProps, "toggleModal"> {
   children: React.ReactNode;
   styleType?: string;
+  modalType?: string;
 }
 
-const Modal = ({ toggleModal, children, styleType }: ModalProps) => {
+const Modal = ({ toggleModal, children, styleType, modalType }: ModalProps) => {
   return (
-    <DimmedModal onClick={toggleModal}>
+    <DimmedModal onClick={toggleModal} modalType={modalType}>
       <ModalBox styleType={styleType}>{children}</ModalBox>
     </DimmedModal>
   );

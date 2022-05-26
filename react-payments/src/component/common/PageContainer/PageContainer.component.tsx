@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-const PageContainer = styled.div<{ type?: string }>`
+const PageContainer = styled.div<{ type?: string; gap?: string }>`
   display: flex;
   flex-direction: column;
-  width: 350px;
+  align-items: center;
+  width: 375px;
+  gap: ${({ gap }) => gap};
   height: ${({ type }) => (type === "add" ? "850px" : "700px")};
   border: 1px solid ${({ theme }) => theme.colors.pageBorder};
   padding: 20px 15px;
   overflow: auto;
-
+  border-radius: 10px;
   &::-webkit-scrollbar {
     width: 6px;
   }
