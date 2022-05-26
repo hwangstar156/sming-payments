@@ -23,7 +23,7 @@ function App({ price }: { price?: number }) {
           <CardDataProvider>
             <ErrorProvider>
               <PageRouterProvider>
-                <ModalPortal elementId="modal">
+                <ModalPortal elementId="sming-modal">
                   <Modal toggleModal={toggleModal} modalType="global-modal">
                     <PageRouter price={price} toggleModal={toggleModal} />
                   </Modal>
