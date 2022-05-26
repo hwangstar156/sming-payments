@@ -15,10 +15,12 @@ function App({
   price,
   isShowModal,
   toggleModal,
+  payButtonHandler,
 }: {
   price?: number;
   isShowModal: boolean;
   toggleModal: React.DispatchWithoutAction;
+  payButtonHandler: (...args: any[]) => void;
 }) {
   return isShowModal ? (
     <FormDataProvider>
@@ -30,7 +32,11 @@ function App({
               <PageRouterProvider>
                 <ModalPortal elementId="sming-modal">
                   <Modal toggleModal={toggleModal} modalType="global-modal">
-                    <PageRouter price={price} toggleModal={toggleModal} />
+                    <PageRouter
+                      price={price}
+                      toggleModal={toggleModal}
+                      payButtonHandler={payButtonHandler}
+                    />
                   </Modal>
                 </ModalPortal>
               </PageRouterProvider>

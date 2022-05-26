@@ -9,13 +9,16 @@ import PageContainer from "../../component/common/PageContainer/PageContainer.co
 function PaymentPage({
   price,
   toggleModal,
+  payButtonHandler,
 }: {
   price: number;
   toggleModal: React.DispatchWithoutAction;
+  payButtonHandler?: (...args: any[]) => void;
 }) {
   const [checked, setChecked] = useState<boolean>(false);
 
   const onClickPayButton = () => {
+    payButtonHandler && payButtonHandler();
     alert(`${price}원이 결제되었습니다`);
     toggleModal();
   };

@@ -1,7 +1,7 @@
 {
   "name": "sming-payments",
   "description": "리액트 페이먼츠",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "private": false,
   "main": "dist/src/lib/index.js",
   "types": "dist/src/lib/index.d.ts",

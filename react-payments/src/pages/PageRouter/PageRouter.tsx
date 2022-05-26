@@ -16,8 +16,16 @@ const RootPageContainer = styled.div`
 `;
 
 const pages = {
-  "/": (price: number, toggleModal: React.DispatchWithoutAction) => (
-    <PaymentPage price={price} toggleModal={toggleModal} />
+  "/": (
+    price: number,
+    toggleModal: React.DispatchWithoutAction,
+    payButtonHandler?: (...args: any[]) => void
+  ) => (
+    <PaymentPage
+      price={price}
+      toggleModal={toggleModal}
+      payButtonHandler={payButtonHandler}
+    />
   ),
   "/add": () => <CardAddPage />,
   "/register": () => <CardRegisterPage />,
@@ -26,9 +34,11 @@ const pages = {
 function PageRouter({
   price,
   toggleModal,
+  payButtonHandler,
 }: {
   price?: number;
   toggleModal: React.DispatchWithoutAction;
+  payButtonHandler?: (...args: any[]) => void;
 }) {
   const pageRouterContext = useContext(PageRouterContext);
   if (!pageRouterContext) {
@@ -41,7 +51,9 @@ function PageRouter({
         e.stopPropagation();
       }}
     >
-      {path === "/" ? pages[path](price || 0, toggleModal) : pages[path]()}
+      {path === "/"
+        ? pages[path](price || 0, toggleModal, payButtonHandler)
+        : pages[path]()}
       <div id="sming-payments-modal"></div>
     </RootPageContainer>
   );
