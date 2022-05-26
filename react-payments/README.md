@@ -21,6 +21,18 @@ root.render(
 );
 ```
 
+```html
+<!-- public/index.html-->
+<!DOCTYPE html>
+<html lang="ko">
+  <!--... -->
+  <body>
+    <div id="root"></div>
+    <div id="sming-modal"></div>
+  </body>
+</html>
+```
+
 ### SmingPayment Component
 
 ```jsx
